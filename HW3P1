@@ -1,0 +1,5 @@
+def bunnyEars(p):
+    if p<1: return 0
+    elif p%2: return bunnyEars(p-1)+2
+    else: return bunnyEars(p-1)+3
+print(bunnyEars(9)) 
