@@ -1,0 +1,20 @@
+#Ken Deng
+#Homework4.Assignment1
+#May 8,2015
+import os
+dir_path=input("Please input the start path: ")
+search_name=input("Please input the file name: ")
+def print_tree(dir_path,search_name):
+    for name1 in os.listdir(dir_path):#if name1 is in the given directory
+        full_path=os.path.join(dir_path,name1)#Then the full path is the given path plus the each name
+        if os.path.isfile(full_path):#if the full path is a file's path           
+            if search_name in name1:#if the search name is in the list of file names
+                print("Oh we got it: ",full_path)
+                break
+            else:
+                print("Sorry,the file is not in the directory of ",full_path)
+                
+#print_tree(full_path,search_name)
+        else:#if the full path is not a file's path, means it's a directory's path
+            print_tree(full_path,search_name)#then just run the function with new path.This is recursively.
+print_tree(dir_path,search_name)
