@@ -1,0 +1,32 @@
+#Ken Deng
+#Homework4:Assignment4
+#May 8,2o15
+
+
+import pickle
+import shelve
+
+name=input("Please input your name: ")
+age=input("Please input your age: ")
+country=input("Please input your original country: ")
+
+def pickle_func(name,age,country):
+    f=open("pickle_func.txt","bw")
+    mylist=[name,age,country]
+    pickle.dump(mylist,f)
+    f.close()
+def unpickling(name,age,country):
+    f=open("pickle_func.txt","br")
+    mylist=pickle.load(f)
+    print(mylist)
+    f.close()
+
+s=shelve.open("myquotes")
+s["file"]={name,age,country}
+
+
+pickle_func(name,age,country)
+print("This is in pickle")
+unpickling(name,age,country)
+print("This is in shelve")
+print(s["file"])
