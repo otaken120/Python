@@ -1,0 +1,24 @@
+#Ken Deng
+#Homework4:Assignment3
+#May 8,2o15
+
+from datetime import datetime
+import shelve
+
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+s = shelve.open("myquotes")
+s["flowers"]={'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+
+
+print (dict)
+print(datetime.now())
+a=datetime.now()
+print (dict)
+print(datetime.now())
+b=datetime.now()
+print("Dictionary's speed is ",b-a)
+print(s["flowers"])
+print(datetime.now())
+c=datetime.now()
+print("Shelve's speed is ",c-b)
+s.close()
