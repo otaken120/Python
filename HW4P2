@@ -1,0 +1,17 @@
+#Ken Deng
+#Homework4:Assignment2
+#May 8,2o15
+
+import os
+import re
+file_path=input("Please input the file path: ")
+file_name=input("Please input the file name: ")
+out=open(os.path.join(file_path,file_name))
+a=out.read()
+matchObj=re.search(r'password=',a,re.M|re.I)#Regular Expressions
+
+if matchObj:
+    print("there are some passwords in this file")
+else:
+    print("this file might be a normal one")
+out.close()
