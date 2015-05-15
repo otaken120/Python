@@ -2,21 +2,20 @@
 #May 15,2015
 #Homework5-2
 
-import re
 import urllib.request
-page=urllib.request.urlopen("https://restcountries.eu/rest/v1/alpha/co")
-
-content=page.read()
-content_str=content.decode("utf-8")#get all the things from the website and turn them into utf-8
-b=eval(content_str)#switch str into dic
+import re
+import json
 
 
 while True:
-    c_code = input("Please input the country code (enter 'quit' to quit): ")
-    c_info = b
-    if(c_code =='quit'):
-            break
-    regexp = re.compile(c_code)
-    if (regexp.search(c_code)):
-        print(c_info["name"],c_info["capital"])
+    co_code=input("Please enter country code('quit' to quit):")
+    if(co_code=='quit'):
+        print("Good bye!")
+        break
+    url="https://restcountries.eu/rest/v1/alpha/"+co_code
+    page = urllib.request.urlopen(url)
+    content=page.read()#read the page
+    content_string = content.decode("utf-8")#turn all the things into string
+    json_data=json.loads(content_string)#load the dic's data
+    print(json_data["name"],json_data["capital"])
     
