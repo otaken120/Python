@@ -19,5 +19,4 @@ while True:
     regexp = re.compile(c_code)
     if (regexp.search(c_code)):
         print(c_info["name"],c_info["capital"])
-    else:
-        print(c_info["name"],c_info["capital"])
+    
