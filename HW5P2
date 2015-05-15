@@ -18,6 +18,6 @@ while True:
             break
     regexp = re.compile(c_code)
     if (regexp.search(c_code)):
-        print(b["name"],b["capital"])
+        print(c_info["name"],c_info["capital"])
     else:
-        print("Sorry, we do not find out this country code..")
+        print(c_info["name"],c_info["capital"])
