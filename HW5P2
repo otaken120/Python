@@ -1,0 +1,23 @@
+#Ken Deng
+#May 15,2015
+#Homework5-2
+
+import re
+import urllib.request
+page=urllib.request.urlopen("https://restcountries.eu/rest/v1/alpha/co")
+
+content=page.read()
+content_str=content.decode("utf-8")#get all the things from the website and turn them into utf-8
+b=eval(content_str)#switch str into dic
+
+
+while True:
+    c_code = input("Please input the country code (enter 'quit' to quit): ")
+    c_info = b
+    if(c_code =='quit'):
+            break
+    regexp = re.compile(c_code)
+    if (regexp.search(c_code)):
+        print(b["name"],b["capital"])
+    else:
+        print("Sorry, we do not find out this country code..")
