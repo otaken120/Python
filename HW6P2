@@ -1,0 +1,36 @@
+#name:Ken Deng
+#Homework 6, Program 2
+
+
+
+from random import randrange
+
+while True:
+    b = randrange(5)
+    a = randrange(5)*b  #b could be times of a
+    try:
+        real=a/b
+    except ZeroDivisionError:
+        while True:
+            b = randrange(5)
+            a = randrange(5)*b 
+            if(b!=0):
+                real=a/b
+                break
+    answer=input(str(a)+"/"+str(b)+"= ")
+    try:
+        answer=int(answer)
+    except ValueError:
+        while True:
+            print("Please enter Integers Only!! try again! ")
+            answer=input(str(a)+"/"+str(b)+"= ")
+            try:
+                answer=int(answer)
+                break
+            except:
+                pass
+    finally:
+        if answer==a/b:
+            print("CORRECT!")
+        else:
+            print("INCORRECT!")
