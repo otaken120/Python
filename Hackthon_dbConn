@@ -1,0 +1,10 @@
+#Team member:Ken Deng, Huirou Ma, Yanwu Han
+import sqlite3
+
+conn = sqlite3.connect("movies.sqlite") #create connection to zoo.sqlite database, creates the database if it doesn't already exist
+cursor = conn.cursor() #provides are cursor to the above connection (the means of executing the SQL queries)
+cursor.execute("create table spiderMan_info (Drama integer, Acting integer, Special_Efficacy integer)") #execute the create table query
+cursor.execute("insert into spiderMan_info(Drama, Acting, Special_Efficacy) values(0,0,0)") #inset a row into the animal_count table
+
+conn.commit() #commit changes to the database
+conn.close() #close the connection
